@@ -6,7 +6,8 @@
   "dependencies": {
     "body-parser": "^1.19.0",
     "ejs": "^2.6.1",
-    "express": "^4.17.0"
+    "express": "^4.17.0",
+    "gatsby-theme-blog-darkmode": "^3.0.0"
   },
   "devDependencies": {},
   "scripts": {
