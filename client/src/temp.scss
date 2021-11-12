@@ -1,0 +1,105 @@
+@import "assets/styles/\_media_queries.scss";
+
+.learn-summary--wrapper {
+    min-height: 100vh;
+    overflow-x: hidden;
+    overflow  : hidden;
+
+    .learn-summary-inner-wrapper {
+        @include less_than_sm {
+            padding-bottom: 1rem;
+        }
+    }
+
+    .section-division {
+        >div:last-child {
+            >div {
+                margin-bottom: 0 !important;
+            }
+        }
+    }
+}
+
+.learn-summary-wrapper {
+    &__main-row {
+        padding: var(--header-height) 2rem 0rem 2rem;
+
+        @include less_than_sm {
+            padding: var(--header-height) 0rem 0rem 0rem;
+        }
+    }
+
+    &__divider {
+        margin-top   : 1.5rem;
+        margin-bottom: 1rem;
+        width        : 85%;
+        margin-left  : 1rem;
+        border-style : solid;
+        border-width : 1px;
+        border-bottom: 1px;
+        opacity      : 0.4;
+
+        @include less_than_sm {
+            display: none;
+        }
+    }
+
+    &__right-col {
+        padding: 0 1rem;
+
+        @include less_than_sm {
+            margin-top: 1rem;
+        }
+
+        .section-header {
+            font-size    : 1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .section-sectionName {
+            font-size    : 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .section-subSectionName {
+            font-size    : 0.9rem;
+            margin-bottom: 0.2rem;
+            margin-top   : 0.5rem;
+        }
+    }
+
+    &__section-data-wrapper {
+        @include greater_than_sm {
+            overflow     : hidden;
+            // height: 85vh;
+            // overflow-y: scroll;
+            padding-right: 2rem;
+        }
+
+        .section-header {
+            font-size    : 1.2rem;
+            margin-bottom: 1rem;
+        }
+
+        .section-sectionName {
+            font-size    : 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .section-subSectionName {
+            font-size    : 1.1rem;
+            margin-bottom: 0.5rem;
+            margin-top   : 1rem;
+        }
+    }
+}
+
+.mobile-section {
+    .slick-slider .slick-arrow.slick-prev {
+        padding: 0.3rem;
+    }
+
+    .slick-slider .slick-arrow.slick-next {
+        padding: 0.3rem;
+    }
+}
