@@ -1,18 +1,207 @@
 ---
 slug: demo-02
 date: 2018-01-01
-title: 'Please, Tell Me More'
-description: 'Sed vehicula mauris vel felis faucibus placerat. Quisque sed justo quis tellus aliquam tincidunt. Vestibulum sit amet ante sit amet nibh accumsan viverra.'
+title: 'Generator Function, Javascript'
+description: 'Generator function in javascript, What is it, Working mechanism, Why we need it ? Multiple use cases'
 published: true
 banner: './banner.png'
 ---
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi rhoncus sem non eros semper posuere. Quisque scelerisque non diam in fringilla. Praesent dignissim eros vel urna tincidunt pharetra. Fusce cursus, est quis vestibulum facilisis, elit diam convallis orci, eu convallis metus leo vitae massa. Mauris id nisi ut erat auctor fermentum. Sed purus nisl, hendrerit id suscipit sit amet, consectetur ut magna. Donec cursus accumsan lectus vel porta. Proin ac mollis arcu. Integer nec dictum sapien, dignissim semper dui. Quisque porta ipsum sit amet lorem feugiat tincidunt. Nam vel purus dolor. Donec semper tortor lacus, sed blandit sapien rutrum id. Fusce gravida tortor ultrices magna auctor, at bibendum est pellentesque. Vivamus porttitor ultrices varius.
+# Generator Function
 
-Phasellus nulla justo, auctor in ornare sit amet, volutpat at sapien. Donec non turpis nec ligula finibus finibus quis id lorem. Vestibulum sodales ornare lorem, sed dapibus justo sagittis non. Curabitur rutrum, eros quis iaculis commodo, sem turpis blandit quam, eu egestas risus nunc quis sapien. Aliquam erat volutpat. In leo massa, pellentesque non mollis ac, tristique vitae neque. Donec nunc magna, pharetra quis iaculis sit amet, molestie non est. Sed ornare urna id molestie convallis.
+They’re especially good for working with multiple asynchronous steps
 
-Cras ut nulla pellentesque, convallis orci vel, ultricies augue. Cras imperdiet magna sit amet vestibulum dictum. Maecenas ac tortor vel nisl luctus blandit. Nunc bibendum commodo aliquet. Nunc urna tellus, sagittis vitae mollis vel, venenatis et lectus. Morbi lacus felis, fringilla a feugiat eget, imperdiet ac odio. Duis tortor tellus, vulputate eget arcu eget, pulvinar porta odio.
+Before we see fully about generator function let's understand a scenario why and when we need a generator function
 
-Cras tincidunt, massa vel pulvinar mollis, purus ex aliquam justo, at blandit turpis metus sit amet felis. Cras at nibh odio. Nulla ultrices metus sed est porta bibendum. Quisque efficitur nisl eget odio fringilla mollis. Vivamus vel lectus sem. Sed sit amet nisi aliquet, suscipit quam at, congue lacus. Pellentesque volutpat, ante ac mollis iaculis, est enim eleifend quam, id molestie est felis in sem. Nullam ac rutrum tortor, sed venenatis lectus. Nullam quis imperdiet urna. Integer mauris mi, tincidunt sit amet finibus eget, posuere eu leo. Fusce sodales convallis convallis. Pellentesque at augue id nulla convallis aliquam et id tellus. Praesent non nibh viverra odio mattis congue. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae;
+### Pseduo Scenario 
+We need to get first ninja's mission details, The below pseduo code has a psedo syncGetJSON ( a non-existing syncronouse function to read a JSON file).
+```js
+try {
+   var ninjas = syncGetJSON("ninjas.json");
+   var missions = syncGetJSON(ninjas[0].missionsUrl);
+   var missionDetails = syncGetJSON(missions[0].detailsUrl);
+   //Study the mission description
+}
+catch(e){
+  //Oh no, we weren't able to get the mission details
+}
+```
+Javascript cannot be blocked as it is single threaded.
 
-Curabitur aliquam hendrerit imperdiet. Sed fringilla dui velit, et suscipit diam bibendum vitae. Nulla eu ultricies tellus. Pellentesque ex quam, blandit ut varius ut, varius vel sapien. Quisque nec dolor a lectus porttitor vehicula. Nunc condimentum semper sem, vitae dapibus orci hendrerit vitae. Nullam cursus, elit viverra consectetur pharetra, dolor mauris sodales dolor, sit amet rutrum metus ex non est. Pellentesque eu sapien cursus, feugiat metus ut, tempor justo. Morbi et commodo risus. In hac habitasse platea dictumst. Aliquam eget consectetur metus.
+### Let see actual Implementation of the Psedo-scenario in javascript
+
+```js
+getJSON("ninjas.json", function(err, ninjas){
+  if(err) {
+    console.log("Error fetching list of ninjas", err);
+    return;
+  }
+  getJSON(ninjas[0].missionsUrl, function(err, missions) {
+    if(err) {
+      console.log("Error locating ninja missions", err);
+      return;
+    }
+  getJSON(missions[0].detailsUrl, function(err, missionDetails){
+    if(err) {
+      console.log("Error locating mission details", err);
+      return;
+    }
+    //Study the intel plan
+    });
+  });
+});
+```
+
+This code creates a callback hell and it's difficult to understand straight forward.
+
+### Generator Function
+It is defined by putting a asterick right after the function  keyword.
+
+We can also use the yield keywords in generator function
+```js
+async (function *(){
+try{
+	const ninjas = yield getJSON("ninjas.json");
+	const missions = yield getJSON(ninjas[0].missionsUrl);
+	const missionDescription = yield(missions[0].detailsUrl);
+}
+catch(e){
+	//oh no, we were't able to get the mission details.
+}
+})
+```
+
+#### The theory definition
+A generator is a function that generates a sequence of values, but not all at once, as a standard function would, but on a per request basis. 
+
+We have to explicitly ask the generator for a new value, and the generator will either respond with a value or notify us that it has no more values to produce.
+
+after a value is produced, a generator function doesn’t end its execution, as a normal function would. Instead, a generator is merely suspended.
+
+#### the example
+
+```javascript
+function WeaponGenerator(){
+	yield "Katana";
+	yield "Wakizashi";
+	yield "Kasarigama";
+	
+}
+```
+
+#### Consuming WeaponGenerator Example 1 
+```javascript=
+for(let weapon of WeaponGenerator()) {
+  assert(weapon, weapon);
+}
+```
+
+#### Controlling generator function through iterator object
+
+Making a call to a generator doesn’t mean that the body of the generator function will be executed. Instead, an iterator object is created, an object through which we can communicate with the generator
+
+See the below self explainable image
+![](https://i.imgur.com/J8uTEPu.png)
+
+#### Generator function and while loop
+![](https://i.imgur.com/8RgxZti.png)
+
+#### Generator function delegation
+By using the yield* operator on an iterator
+![](https://i.imgur.com/ACgx3nN.png)
+
+Output
+```shell
+"Sun Tzu"
+"Hattori"
+"Yoshi"
+"Genghis Khan"
+```
+
+### Use case 1 ( Generating Unique Identifiers Using Generator Function)
+
+#### requirement
+When creating certain objects, often we need to assign a unique ID to each object.
+
+#### The normal way
+The easiest way to do this is through a global counter variable
+
+#### The problem in the normal way
+that’s kind of ugly because the variable can be accidently messed up from anywhere in our code. 
+
+#### The generator way
+```javascript
+function *idGenerator(){
+	var i = 1;
+	while(1){
+		yield i++;
+	}
+}
+
+var idIterator = idGenerator();
+const ninja1 = { 'id' : idIterator.next().value } // {id:1}
+const ninja1 = { 'id' : idIterator.next().value } // {id:2}
+const ninja1 = { 'id' : idIterator.next().value } // {id:3}
+```
+
+#### The closure Way
+```javascript
+function idGeneratorConstructor(){
+	var id = 1;
+	return function(){
+		return id++;
+	}
+}
+var idGenerator = idGeneratorConstructor();
+const ninja1 = { 'id' : idGenerator() } // {id:1}
+const ninja1 = { 'id' : idGenerator() } // {id:2}
+const ninja1 = { 'id' : idGenerator() } // {id:3}
+```
+
+### Use case 2 - ( DOM Traversal )
+The general way 
+![](https://i.imgur.com/XWJspRQ.png)
+
+Understand the DOM Traversal and make it better using Generator functions.
+DONT SEE THE ANSWER
+.
+.
+.
+.
+.
+![](https://i.imgur.com/HsltF51.png)
+
+
+## Communicating with generator Function
+So far we have seen generator returning multiple values.
+
+### Two Way communication
+We can also send data to a genarator, there by acheiving two way communication.
+
+A example to understand it
+![](https://i.imgur.com/WtXXQfw.png)
+
+#### Throwing exceptions into generator in two way communication
+![](https://i.imgur.com/hkPE5r2.png)
+
+Instead of calling next with iterator, just need to call iterator.throw()
+
+### Exploring Generators under the Hood
+Like promise generator also has multiple execution states
+
+- Suspended start
+Generator is created, But no code Executed
+- Executing
+
+- Executing
+Code of the generator is getting executed either from start or from last suspended state.
+
+- Suspended yield
+When a generator reaches yield expression it creates a object carring the return value and suspends the execution. 
+
+- Completed
+If the generator returns or runs out of code to execute, it moves to completed state.
+
+A diagram expalining the states of execution.
+
+![](https://i.imgur.com/Wgg9QSj.png)

@@ -1,18 +1,109 @@
 ---
-slug: demo-01
-date: 2017-01-01
-title: 'A Lovely Walk In The Park'
+slug: javascript-scopes-and-closures
+date: 2017-06-15
+title: 'Scopes and Closures, Javascript'
 description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed molestie leo ut sodales porta. Vivamus pharetra risus ac fermentum faucibus. Nam in sodales ex.'
 published: true
-banner: './banner.png'
+banner: './banner.jpg'
 ---
+# Scopes & Closures
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi rhoncus sem non eros semper posuere. Quisque scelerisque non diam in fringilla. Praesent dignissim eros vel urna tincidunt pharetra. Fusce cursus, est quis vestibulum facilisis, elit diam convallis orci, eu convallis metus leo vitae massa. Mauris id nisi ut erat auctor fermentum. Sed purus nisl, hendrerit id suscipit sit amet, consectetur ut magna. Donec cursus accumsan lectus vel porta. Proin ac mollis arcu. Integer nec dictum sapien, dignissim semper dui. Quisque porta ipsum sit amet lorem feugiat tincidunt. Nam vel purus dolor. Donec semper tortor lacus, sed blandit sapien rutrum id. Fusce gravida tortor ultrices magna auctor, at bibendum est pellentesque. Vivamus porttitor ultrices varius.
+### Scope 
+If a variable or function is accissible it is in the scope of execution context
+There are three scopes
+	- Local Scope
+	- Clousure Scope
+	- Global Scope
+	
+### Closure Scope
 
-Phasellus nulla justo, auctor in ornare sit amet, volutpat at sapien. Donec non turpis nec ligula finibus finibus quis id lorem. Vestibulum sodales ornare lorem, sed dapibus justo sagittis non. Curabitur rutrum, eros quis iaculis commodo, sem turpis blandit quam, eu egestas risus nunc quis sapien. Aliquam erat volutpat. In leo massa, pellentesque non mollis ac, tristique vitae neque. Donec nunc magna, pharetra quis iaculis sit amet, molestie non est. Sed ornare urna id molestie convallis.
+Simple closure
+```javascript
+function pam() {
+    var name = "Pam Beesly";
+    function setName(newName) {
+        name = newName; //Here name variable is accessible through global scope
+    }
+	function displayName(){
+		console.log(name)
+	}
+    setName("Pam Halpert");
+}
+pam();
+```
 
-Cras ut nulla pellentesque, convallis orci vel, ultricies augue. Cras imperdiet magna sit amet vestibulum dictum. Maecenas ac tortor vel nisl luctus blandit. Nunc bibendum commodo aliquet. Nunc urna tellus, sagittis vitae mollis vel, venenatis et lectus. Morbi lacus felis, fringilla a feugiat eget, imperdiet ac odio. Duis tortor tellus, vulputate eget arcu eget, pulvinar porta odio.
+Closure scope from a returned function
+```
+function makeWorker() {
+  let name = "Pete";
 
-Cras tincidunt, massa vel pulvinar mollis, purus ex aliquam justo, at blandit turpis metus sit amet felis. Cras at nibh odio. Nulla ultrices metus sed est porta bibendum. Quisque efficitur nisl eget odio fringilla mollis. Vivamus vel lectus sem. Sed sit amet nisi aliquet, suscipit quam at, congue lacus. Pellentesque volutpat, ante ac mollis iaculis, est enim eleifend quam, id molestie est felis in sem. Nullam ac rutrum tortor, sed venenatis lectus. Nullam quis imperdiet urna. Integer mauris mi, tincidunt sit amet finibus eget, posuere eu leo. Fusce sodales convallis convallis. Pellentesque at augue id nulla convallis aliquam et id tellus. Praesent non nibh viverra odio mattis congue. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae;
+  return function() {
+    alert(name); //when this getting executed the variable `name` will be available in closure scope
+  };
+}
 
-Curabitur aliquam hendrerit imperdiet. Sed fringilla dui velit, et suscipit diam bibendum vitae. Nulla eu ultricies tellus. Pellentesque ex quam, blandit ut varius ut, varius vel sapien. Quisque nec dolor a lectus porttitor vehicula. Nunc condimentum semper sem, vitae dapibus orci hendrerit vitae. Nullam cursus, elit viverra consectetur pharetra, dolor mauris sodales dolor, sit amet rutrum metus ex non est. Pellentesque eu sapien cursus, feugiat metus ut, tempor justo. Morbi et commodo risus. In hac habitasse platea dictumst. Aliquam eget consectetur metus.
+let name = "John";
+
+// create a function
+let work = makeWorker();
+
+// call it
+work();
+```
+
+### closure usecases
+
+Closures used to create factory functions
+And closures are core of functional programming
+#### Function factories
+There are many ways to create a object, 
+Object.create, {} (Object literal), new Object, and factory function
+```javascript
+function Employee(designation){
+	var dbAccess;
+	if(designation == 'prject manager'){
+		dbAccess = true;
+	}else{
+		dbAccess = false;
+	}
+	return function(name){
+		console.log(`${name} the ${designation} and dbAccess ${dbAccess}`);
+	}
+}
+var projectManager = Employee('project manager');
+var ram = projectManager('Ram'); //Ram the manager and dbAccess true
+var juniorDeveloper = Employee('Junior Developer');
+var siva = juniorDeveloper('Siva') //Siva the Junior Developer and dbAccess false
+```
+
+### Callbacks 
+Whenever IO request or Settimeout callback is executing the callback uses Closure scope to access the variables outside it's local scope.
+
+```javascript
+let name = "Siva"
+settimeout(function(){
+	console.log(name) //name is accessed through closure scope here
+}, 2000)
+```
+
+### Find out the answer ( Test )
+
+```js
+let deck = {
+    suits: ["hearts", "spades", "clubs", "diamonds"],
+    cards: Array(52),
+    createCardPicker: function() {
+        return function() {
+            let pickedCard = Math.floor(Math.random() * 52);
+            let pickedSuit = Math.floor(pickedCard / 13);
+
+            return {suit: this.suits[pickedSuit], card: pickedCard % 13};
+        }
+    }
+}
+
+let cardPicker = deck.createCardPicker();
+let pickedCard = cardPicker();
+```
+
+[Answer and explnation](https://www.typescriptlang.org/docs/handbook/functions.html#this-and-arrow-functions)
