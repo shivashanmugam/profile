@@ -10,7 +10,7 @@ import {
 
 export default ({ data: { site, allMdx, latestArticle } }) => {
   return (
-    <Layout site={site} noSubscribeForm>
+    <Layout site={site} noSubscribeForm={true}>
       <div>
         <Message
           fullscreen

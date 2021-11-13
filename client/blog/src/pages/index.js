@@ -17,7 +17,7 @@ const Description = styled.p`
 export default function Index({ data: { site, allMdx } }) {
   const theme = useTheme()
   return (
-    <Layout site={site}>
+    <Layout site={site} noSubscribeForm={true}>
       <Container
         css={css`
           padding-bottom: 0;
