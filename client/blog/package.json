@@ -67,6 +67,7 @@
   "main": "n/a",
   "scripts": {
     "build": "gatsby build",
+    "build-with-prefix": "gatsby build --prefix-paths",
     "develop": "gatsby develop",
     "start": "serve public/",
     "now-build": "npm run build"
