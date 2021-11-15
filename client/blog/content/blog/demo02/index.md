@@ -4,7 +4,7 @@ date: 2018-01-01
 title: 'Generator Function, Javascript'
 description: 'Generator function in javascript, What is it, Working mechanism, Why we need it ? Multiple use cases'
 published: true
-banner: './images/banner.png'
+# banner: './images/banner.png'
 ---
 
 # Generator Function

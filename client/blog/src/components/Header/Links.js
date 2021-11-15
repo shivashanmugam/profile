@@ -7,6 +7,7 @@ export default () => {
   const theme = useTheme()
   return (
     <React.Fragment>
+      <a href="../../../">My Profile</a>
       <ThemeToggler
         css={{}}
         toggleTheme={theme.toggleTheme}

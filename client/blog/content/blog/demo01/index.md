@@ -6,7 +6,7 @@ description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed moles
 published: true
 categories: ['js']
 keywords: ['js']
-banner: './images/banner.jpg'
+# banner: './images/banner.jpg'
 ---
 # Scopes & Closures
 
