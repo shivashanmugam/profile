@@ -1,5 +1,5 @@
 module.exports = {
-  pathPrefix: '/blog', // Prefix for all links. If you deploy your site to example.com/blog your pathPrefix should be "blog"
+  pathPrefix: '/', // Prefix for all links. If you deploy your site to example.com/blog your pathPrefix should be "blog"
   siteTitle: `Siva Kannan`, // Navigation and Site Title
   siteTitleAlt: 'The blog of a Web developer', // Alternative Site title for SEO
   siteTitleShort: 'Siva Kannan blog', // short_name for manifest
@@ -8,11 +8,11 @@ module.exports = {
   siteLogo: 'images/logo.png', // Used for SEO and manifest, path to your image you placed in the 'static' folder
   siteDescription: 'This is where they post things!',
   author: 'Siva Kannan', // Author for schemaORGJSONLD
-  organization: 'egghead.io LLC',
+  organization: 'Siva Kannan',
 
   // siteFBAppID: '123456789', // Facebook App ID - Optional
-  userTwitter: '@eggheadio', // Twitter Username
-  ogSiteName: 'egghead.io Gatsby Starter Blog', // Facebook Site Name
+  userTwitter: '@_siva_kannan', // Twitter Username
+  ogSiteName: 'Siva Kannan', // Facebook Site Name
   ogLanguage: 'en_US',
   googleAnalyticsID: '',
 
@@ -21,8 +21,8 @@ module.exports = {
   backgroundColor: '#2b2e3c',
 
   // Social component
-  twitter: 'https://twitter.com/eggheadio/',
-  twitterHandle: '@eggheadio',
-  github: 'https://github.com/eggheadio/',
+  twitter: 'https://twitter.com/_siva_kannan',
+  twitterHandle: '@_siva_kannan',
+  github: 'https://github.com/shivashanmugam/',
   linkedin: '',
 }

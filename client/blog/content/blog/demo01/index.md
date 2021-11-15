@@ -4,7 +4,9 @@ date: 2017-06-15
 title: 'Scopes and Closures, Javascript'
 description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed molestie leo ut sodales porta. Vivamus pharetra risus ac fermentum faucibus. Nam in sodales ex.'
 published: true
-banner: './banner.jpg'
+categories: ['js']
+keywords: ['js']
+banner: './images/banner.jpg'
 ---
 # Scopes & Closures
 

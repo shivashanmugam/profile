@@ -1,0 +1,15 @@
+$font-family : "Inter var",
+"Inter",
+sans-serif !important;
+$page-padding      :2vw;
+$page-base         :#f1f4f8;
+$page-base-gradient:linear-gradient(177deg, hsla(218, 36%, 93%, 0.64) 29%, hsla(0, 0%, 100%, 0.64) 150%);
+
+* {
+    font-family: $font-family;
+}
+
+body {
+    padding   : 5px $page-padding;
+    background: $page-base;
+}
