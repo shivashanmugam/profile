@@ -26,7 +26,7 @@ app.use('/blog', express.static(path.join(__dirname, '/client/blog/public')))
 // page configuration
 // app.get('/', (req, res) => res.sendFile(path.join(__dirname + '/pages/home.html'))) 
 
-app.get('/', (req, res) => {
+app.get('/*', (req, res) => {
     res.sendFile(path.join(__dirname + '/client/build/index.html'));
 });
 
