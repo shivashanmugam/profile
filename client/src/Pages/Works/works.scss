@@ -1,0 +1,83 @@
+@import "_mixins.scss";
+
+.works-page {
+    width     : 60%;
+    margin    : auto;
+    margin-top: 4%;
+
+    &__work-card {
+        background   : #F4F3F3;
+        border       : 1px solid silver;
+        border-radius: 4px;
+        padding      : 0.8rem;
+
+        .top-portion {
+            margin-bottom: 0.8rem;
+
+            .banner {
+                overflow     : hidden;
+                width        : 100%;
+                position     : relative;
+                border-radius: 4px;
+
+                img {
+                    width : 100%;
+                    height: 100%;
+                }
+            }
+
+            .details {
+                padding: 0 0.8rem;
+
+                .title {
+                    margin-bottom: 0;
+                }
+
+                .description {
+                    overflow          : hidden;
+                    display           : -webkit-box;
+                    -webkit-line-clamp: 2;
+                    -webkit-box-orient: vertical;
+                }
+
+                text-align: left;
+            }
+        }
+
+        .image-slider {
+
+            position: relative;
+
+            .slide-arrows {
+                @include boxContent($v-h-align);
+                font-size     : 1.2rem;
+                height        : 70px;
+                z-index       : 2;
+                vertical-align: middle;
+                top           : 25%;
+                cursor        : pointer;
+                opacity       : 0.9;
+
+                &:hover {
+                    opacity: 1;
+                }
+
+                &.slide-left-arrow {
+                    left: 0;
+                }
+
+                &.slide-right-arrow {
+                    right: 0;
+                }
+
+
+            }
+
+            .images-list {
+                width     : 100%;
+                overflow-x: scroll;
+            }
+        }
+
+    }
+}

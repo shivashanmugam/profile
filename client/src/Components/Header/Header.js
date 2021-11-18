@@ -30,7 +30,7 @@ function Logo() {
     )
 }
 
-function MenuLink({ text, Component }) {
+function MenuLink({ text, Component, type }) {
 
     const style = {
         padding: '0px 2vw',
@@ -40,7 +40,11 @@ function MenuLink({ text, Component }) {
 
     return (
         <>
-            <Title level={5} ><Component><Text style={style} type="secondary">{text}</Text></Component></Title>
+            <Title level={5} >
+                <Component>
+                    <Text style={style} type="secondary">{text}</Text>
+                </Component>
+            </Title>
         </>
     )
 }

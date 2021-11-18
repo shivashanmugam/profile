@@ -1,0 +1,15 @@
+$v-align   : 'v-align';
+$h-align   : 'h-align';
+$v-h-align :'v-h-align';
+
+@mixin boxContent($type) {
+    @if($type==$v-align) {}
+
+    @if ($type==$h-align) {}
+
+    @if ($type==$v-h-align) {
+        display        : flex;
+        align-items    : center;
+        justify-content: center;
+    }
+}
