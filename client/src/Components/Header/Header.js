@@ -24,7 +24,7 @@ const Header = function () {
                         <Logo />
                         <MenuLink text="WORKS" Component={routerLinks.works} />
                         <MenuLink text="BLOG" Component={routerLinks.blog} />
-                        <Button onClick={() => { dispatch(setTheme(themeToSwitch)) }} style={{ 'margin-top': '-7px', 'margin-left': '300px' }} size="medium" shape="round">Switch to {themeTextconst[themeToSwitch]}</Button>
+                        <Button onClick={() => { dispatch(setTheme(themeToSwitch)) }} style={{ 'margin-top': '-7px', 'margin-left': '300px' }} size="medium" shape="round">{themeTextconst[themeToSwitch]}</Button>
                     </Space>
                 </Col>
             </Row>

@@ -2,9 +2,10 @@ $font-family : "Inter var",
 "Inter",
 sans-serif !important;
 $page-padding      :2vw;
-$page-base         :rgb(10, 25, 47);
+$page-base-dark    :rgb(10, 25, 47);
+$page-base-light   : #f0f2f5;
 $page-base-gradient:linear-gradient(177deg, hsla(218, 36%, 93%, 0.64) 29%, hsla(0, 0%, 100%, 0.64) 150%);
-@import "_mixins.scss";
+@import "mixins";
 
 @mixin nice-looking-scroll-bar {
     ::-webkit-scrollbar {
@@ -37,17 +38,33 @@ html {
 }
 
 body {
-    padding      : 5px $page-padding;
-    // background: $page-base !important;
-    width        : 100%;
-    font-size    : inherit !important;
+
+    width    : 100%;
+    height   : 100%;
+    font-size: inherit !important;
     @include nice-looking-scroll-bar();
+
+    #root {
+        height: 100%;
+    }
+
+    .application-container {
+        padding   : 5px $page-padding;
+        height    : 100%;
+        overflow-x: hidden;
+        overflow-y: auto;
+        @include nice-looking-scroll-bar();
+
+        &.#{$theme-dark} {
+            background: $page-base-dark !important;
+        }
+
+        &.#{$theme-light} {
+            background: $page-base-light !important;
+        }
+    }
 
     header {
         margin-top: 2vh;
-
-        .header-menu-link {
-            @include boxContent($v-h-align);
-        }
     }
 }

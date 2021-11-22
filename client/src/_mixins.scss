@@ -2,6 +2,54 @@ $v-align   : 'v-align';
 $h-align   : 'h-align';
 $v-h-align :'v-h-align';
 
+$theme-dark  :'dark';
+$theme-light :'light';
+
+$theme-color-varient-lighter  : 'lighter';
+$theme-color-varient-contrast : 'contrast';
+
+$theme-dark-lighter-bg  :#172a45;
+$theme-light-lighter-bg :white;
+
+@mixin get-theme-lighter-varient($theme, $property) {
+    @if $theme==$theme-dark {
+        #{$property}: $theme-dark-lighter-bg;
+    }
+
+    @if $theme==$theme-light {
+        #{$property}: $theme-light-lighter-bg;
+    }
+}
+
+$theme-dark-contrast-bg  :silver;
+$theme-light-contrast-bg :#818181;
+
+@mixin get-theme-contrast-varient($theme, $property) {
+    @if $theme==$theme-dark {
+        #{$property}: $theme-dark-contrast-bg;
+    }
+
+    @if $theme==$theme-light {
+        #{$property}: $theme-light-contrast-bg;
+    }
+}
+
+
+@mixin get-theme-variables($theme, $color-varient, $property) {
+    @if $color-varient==$theme-color-varient-lighter {
+        @include get-theme-lighter-varient($theme, $property)
+    }
+
+    @if $color-varient==$theme-color-varient-contrast {
+        @include get-theme-contrast-varient($theme, $property)
+    }
+
+}
+
+@mixin card-shadow-subtle {
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
 @mixin boxContent($type) {
     @if($type==$v-align) {}
 

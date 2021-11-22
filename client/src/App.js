@@ -1,20 +1,20 @@
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-
+import { themeConst, themePropConst } from 'Const/themeConst';
+import { useSelector } from 'react-redux';
 import Intro from 'Sections/Intro/Intro';
 import Page from 'Components/Page/Page';
 import Home from 'Pages/Home/Home';
 import Works from 'Pages/Works/Works';
 import { ROUTE_CONST, appBasePath } from 'appConst';
 import 'global.scss';
-import './App.scss';
 import 'App.css';
 import logo from './logo.svg';
 
 
 function App(props) {
-  const match = props.match;
+  const curTheme = useSelector((state) => { return state[themePropConst.THEME][themePropConst.MODE] })
   return (
-    <div className="App application-container">
+    <div className={`App application-container ${curTheme}`}>
       <Router basename={appBasePath}>
         <Switch>
           <Route path={ROUTE_CONST.HOME} exact>

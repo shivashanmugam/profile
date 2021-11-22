@@ -1,10 +1,12 @@
 import { useEffect, useState, useRef } from 'react';
-import { Typography, Space, Tag, Image, Col, Row, Divider } from 'antd';
+import { useSelector } from 'react-redux';
+import { Typography, Space, Tag, Image, Col, Row, Divider, Carousel } from 'antd';
 import './works.scss';
 import imageNotFound from './image_404.jpg'
 import { worksData } from "./data"
 import { ErrorBoundary } from 'react-error-boundary'
 import { PlayCircleFilled, PlayCircleOutlined, DatabaseOutlined, ToolOutlined, RightCircleTwoTone, LeftCircleTwoTone, YoutubeOutlined } from '@ant-design/icons'
+import { themeConst, themePropConst } from 'Const/themeConst';
 
 const { Title, Text, Link } = Typography;
 
@@ -24,6 +26,7 @@ export const WORK_PROP_CONST = {
 }
 
 export const Works = function () {
+    const curTheme = useSelector((state) => { return state[themePropConst.THEME][themePropConst.MODE] })
     const [works, setWorks] = useState([])
     useEffect(() => {
         worksData().then(res => {
@@ -40,15 +43,15 @@ export const Works = function () {
     }
 
     return (
-        <div className="works-page">
+        <div className={`works-page ${curTheme}`}>
             {works.map((work, index) => {
                 return (<><Divider orientation={isWorkCardOddIndex(index) ? "left" : "right"}>{index + 1} . {work[WORK_PROP_CONST.TITLE]}</Divider><div class="works-page__work-card">
                     <Row className={"top-portion"}>
-                        {isWorkCardOddIndex(index) && <Col span={8} className={"banner"}><img src={require(`${dataBasePath}${work[WORK_PROP_CONST.FOLDER_NAME]}/${work[WORK_PROP_CONST.BANNER]}`).default} /></Col>}
-                        <Col span={16} className={"details"}>
+                        {isWorkCardOddIndex(index) && <Col span={8} className={"banner"}><ImageSlider theme={curTheme} work={work} images={work[WORK_PROP_CONST.SCREEN_SHOTS]} /></Col>}
+                        <Col span={16} className={`details`}>
                             <Space direction="vertical" >
                                 {/* <Title className={WORK_PROP_CONST.TITLE} level={4}>{work[WORK_PROP_CONST.TITLE]}</Title> */}
-                                <Text className={WORK_PROP_CONST.DESCRIPTION} type={'secondary'}>{work[WORK_PROP_CONST.DESCRIPTION]}</Text>
+                                <Text className={`${WORK_PROP_CONST.DESCRIPTION} ${curTheme}`} >{work[WORK_PROP_CONST.DESCRIPTION]}</Text>
                                 {isExternalLinkPresent(work) && <Space size="large" direction="horizontal">
                                     {work[WORK_PROP_CONST.DEMO_URL] && <Link><a target="_blank" href={work[WORK_PROP_CONST.DEMO_URL]}><PlayCircleOutlined /> Demo&#x2197;</a></Link>}
                                     {work[WORK_PROP_CONST.REPO_URL] && <Link><a target="_blank" href={work[WORK_PROP_CONST.REPO_URL]} ><DatabaseOutlined /> Repository&#x2197;</a></Link>}
@@ -73,20 +76,7 @@ export const Works = function () {
 }
 
 
-export const ImageSlider = function ({ images, work }) {
-    const imagesContainerRef = useRef(null)
-    const [isScrollNeeded, setIsScrollNeeded] = useState(false);
-    const [imagesLoaded, setImagesLoaded] = useState({
-        success: 0,
-        failed: 0
-    });
-    const totalImages = images.length;
-
-    const evaluateIsScrollNeeded = function () {
-        console.log(imagesContainerRef)
-        setIsScrollNeeded(imagesContainerRef.current.scrollWidth > imagesContainerRef.current.clientWidth, 0);
-        console.log(imagesContainerRef.current.scrollWidth > imagesContainerRef.current.clientWidth, 0)
-    }
+export const ImageSlider = function ({ images, work, theme }) {
 
     const dynamicallyImportingScreenShots = function (screenshots) {
         let importedScreenshots = [];
@@ -103,50 +93,18 @@ export const ImageSlider = function ({ images, work }) {
         return importedScreenshots;
     }
 
-    const imageLoaded = function (status) {
-        const imagesLoadedTemp = { ...imagesLoaded };
-        if (status) imagesLoadedTemp.success++;
-        else if (status == false) imagesLoadedTemp.failed++;
-        setImagesLoaded(imagesLoadedTemp);
-        if ((imagesLoadedTemp.success + imagesLoadedTemp.failed) == totalImages) {
-            evaluateIsScrollNeeded();
-        }
-    }
-
-    const onScrollArrowClick = function (isRightArrow) {
-        const element = imagesContainerRef.current;
-        let portionToScroll = element.scrollWidth - element.offsetWidth;
-        let currentlyScrolled = element.scrollLeft;
-        const scrollMovementWidth = portionToScroll / 2; // 4 is reasonable number 
-        if (isRightArrow) {
-            if (currentlyScrolled < portionToScroll) { element.scroll(currentlyScrolled + scrollMovementWidth, 0) }
-        } else {
-            if (currentlyScrolled > 0) { element.scroll(currentlyScrolled - scrollMovementWidth, 0) }
-        }
-    }
 
     const importedScreenshots = dynamicallyImportingScreenShots(images);
 
     return (
-        <div class="image-slider">
-            <Row>
-                {isScrollNeeded && <Col span={1} className={'slide-arrows'}>
-                    <LeftCircleTwoTone onClick={() => { onScrollArrowClick(false) }} class={"slide-left-arrow"} />
-                </Col>}
-                <Col ref={imagesContainerRef} span={isScrollNeeded ? 22 : 24} className="images-list">
-                    <Space direction="horizontal">
-                        {importedScreenshots && importedScreenshots.map(image => {
-                            return (
-                                <Image onLoad={() => { imageLoaded(true) }} fallback={imageNotFound} onError={() => { imageLoaded(false) }} class=" " height={70} width={100} src={image} />
-                            )
-                        })}
-                    </Space>
-                </Col>
-
-                {isScrollNeeded && <Col span={1} className={'slide-arrows'}>
-                    <RightCircleTwoTone onClick={() => { onScrollArrowClick(true) }} class={"slide-right-arrow slide-arrows"} />
-                </Col>}
-            </Row>
+        <div className={`${theme} image-slider`}>
+            <Carousel>
+                {importedScreenshots && importedScreenshots.map(image => {
+                    return (
+                        <Image fallback={imageNotFound} class=" " src={image} />
+                    )
+                })}
+            </Carousel>
         </div>
     )
 }
