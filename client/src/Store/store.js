@@ -3,6 +3,6 @@ import themeReducer from '../Reducers/themeSlice';
 
 export default configureStore({
     reducer: {
-        themeSlice: themeReducer
+        theme: themeReducer
     }
 })

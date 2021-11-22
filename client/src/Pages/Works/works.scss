@@ -6,13 +6,14 @@
     margin-top: 4%;
 
     &__work-card {
-        background   : #F4F3F3;
-        border       : 1px solid silver;
+        // background   : #F4F3F3;
+        // border       : 1px solid silver;
         border-radius: 4px;
         padding      : 0.8rem;
+        margin-bottom: 3rem;
 
         .top-portion {
-            margin-bottom: 0.8rem;
+
 
             .banner {
                 overflow     : hidden;
@@ -34,10 +35,17 @@
                 }
 
                 .description {
+                    background        : rgb(23, 42, 69);
+                    padding           : 0.5rem;
+                    border-radius     : 4px;
                     overflow          : hidden;
                     display           : -webkit-box;
                     -webkit-line-clamp: 2;
                     -webkit-box-orient: vertical;
+                }
+
+                .video {
+                    cursor: pointer;
                 }
 
                 text-align: left;
@@ -45,8 +53,10 @@
         }
 
         .image-slider {
-
-            position: relative;
+            margin-top: 0.8rem;
+            position  : relative;
+            text-align: center;
+            @include boxContent($v-h-align);
 
             .slide-arrows {
                 @include boxContent($v-h-align);
@@ -74,8 +84,10 @@
             }
 
             .images-list {
-                width     : 100%;
-                overflow-x: scroll;
+
+                scroll-behavior: smooth;
+                width          : 100%;
+                overflow-x     : auto;
             }
         }
 

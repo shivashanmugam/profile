@@ -4,15 +4,17 @@ import { themeConst, themePropConst } from '../Const/themeConst';
 export const themeSlice = createSlice({
     name: 'theme',
     initialState: {
-        mode: themeConst.DARK,
+        [themePropConst.MODE]: localStorage.theme ? localStorage.theme : themeConst.LIGHT,
     },
     reducers: {
         setTheme: (state, action) => {
-            state.mode = action.payload[themePropConst.THEME]
+            // state[themePropConst.MODE] = action.payload;
+            localStorage.setItem('theme', action.payload)
+            window.location.reload();
         }
     }
 })
 
-export const { setWatchlistFeed } = themeSlice.actions
+export const { setTheme } = themeSlice.actions
 
 export default themeSlice.reducer;

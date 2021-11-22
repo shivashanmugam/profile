@@ -3,6 +3,13 @@ export const themeConst = {
     LIGHT: 'light'
 }
 
+
+export const themeTextconst = {
+    [themeConst.DARK]: '🌙',
+    [themeConst.LIGHT]: "🌞"
+}
+
 export const themePropConst = {
-    THEME: 'theme'
+    THEME: 'theme',
+    MODE: 'mode'
 }
