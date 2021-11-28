@@ -11,6 +11,12 @@ $theme-color-varient-contrast : 'contrast';
 $theme-dark-lighter-bg  :#172a45;
 $theme-light-lighter-bg :white;
 
+
+@mixin gradient-text-webkit-code {
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
 @mixin get-theme-lighter-varient($theme, $property) {
     @if $theme==$theme-dark {
         #{$property}: $theme-dark-lighter-bg;

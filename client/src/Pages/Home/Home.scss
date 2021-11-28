@@ -1,0 +1,191 @@
+@import "_mixins.scss";
+@import "global.scss";
+
+
+
+.home {
+    margin: 2% 10%;
+
+    .icon-title {
+        display: flex;
+    }
+
+    .welcome-message {
+        font-size    : 1.5rem;
+        text-align   : left;
+        margin-bottom: 3rem;
+
+        .name {
+            background             : -webkit-linear-gradient(45deg, #7c78ad, #00ff95 80%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight            : 500;
+        }
+
+        .skill-name {
+            font-family: monospace !important;
+            font-size  : 1.2rem;
+        }
+
+        .myself {
+
+            padding: 10px;
+
+            img {
+                border-radius: 4px;
+                filter       : grayscale(50%);
+                width        : 100%;
+            }
+        }
+
+        .small-intro {
+            margin-top: 10px;
+            font-size : 1.2rem;
+            padding   : 10px;
+            @include card-shadow-subtle;
+            border-radius: 4px;
+
+            &.#{$theme-light} {
+                @include get-theme-variables($theme-light, $theme-color-varient-lighter, 'background');
+            }
+
+            &.#{$theme-dark} {
+                @include get-theme-variables($theme-dark, $theme-color-varient-lighter, 'background');
+                color: rgb(136, 146, 176);
+            }
+        }
+
+        .other-site-links {
+            font-size: 1.2rem;
+
+            a {
+                color: inherit !important;
+            }
+        }
+    }
+
+    .skills {
+
+        margin-bottom: 6rem;
+        text-align   : left;
+
+
+        .skill-container {
+
+            margin: auto;
+
+            .title {
+                font-size: 1.2rem;
+            }
+
+            .skill-list {
+
+
+                li {
+                    font-weight: 300;
+                }
+            }
+        }
+
+
+    }
+
+    .work-experience {
+        text-align   : left;
+        margin-bottom: 6rem;
+
+        .vertical-tab {
+
+            margin: auto;
+        }
+
+        .job-description {
+            .position-and-company {
+                text-transform: uppercase;
+                letter-spacing: 2px;
+            }
+        }
+    }
+
+    .featured-project {
+        text-align: left;
+        position  : relative;
+
+
+
+
+        .image-slider-big {}
+
+        .project-description-container {
+            display: flex;
+            padding: 0 20px;
+            width  : 90%;
+
+            .golden-text {
+                font-family     : 'Times New Roman', serif;
+                font-weight     : bold;
+                background-image: linear-gradient(to right, #462523 0, #cb9b51 22%, #ad9f52 45%, #c9c36d 50%, #f6e27a 55%, #cb9b51 78%, #462523 100%);
+
+                color                  : transparent;
+                -webkit-background-clip: text;
+            }
+
+
+            .project-title {
+
+                margin: 0;
+                // @include gradient-text-webkit-code;
+            }
+
+            .image-slider-text-overlay {
+                margin: auto;
+                top   : 50px;
+                @include boxContent($v-h-align);
+                border-radius: 10px;
+                padding      : 15px;
+                @include card-shadow-subtle;
+
+                &.#{$theme-light} {
+                    @include get-theme-variables($theme-light, $theme-color-varient-lighter, 'background');
+                }
+
+                &.#{$theme-dark} {
+                    @include get-theme-variables($theme-dark, $theme-color-varient-lighter, 'background');
+                    color: rgb(136, 146, 176);
+                }
+            }
+        }
+
+
+        img {
+            border-radius: 10px;
+        }
+
+
+        .slick-dots {
+            margin-bottom: -22px;
+            cursor       : pointer;
+
+            li {
+
+
+
+                button {
+                    border          : 1px solid rgb(160, 153, 153);
+                    border-radius   : 4px;
+                    height          : 6px;
+                    background-color: silver !important;
+                }
+
+                &.slick-active {}
+            }
+
+
+        }
+
+    }
+
+
+
+
+}

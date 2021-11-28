@@ -2,7 +2,7 @@ $font-family : "Inter var",
 "Inter",
 sans-serif !important;
 $page-padding      :2vw;
-$page-base-dark    :rgb(10, 25, 47);
+$page-base-dark    :#171c28;
 $page-base-light   : #f0f2f5;
 $page-base-gradient:linear-gradient(177deg, hsla(218, 36%, 93%, 0.64) 29%, hsla(0, 0%, 100%, 0.64) 150%);
 @import "mixins";
@@ -66,5 +66,18 @@ body {
 
     header {
         margin-top: 2vh;
+    }
+
+    footer {
+        padding-top  : 14vw;
+        margin-bottom: 2vw;
+
+        .resume {
+            div {}
+        }
+
+        .credits {}
+
+
     }
 }

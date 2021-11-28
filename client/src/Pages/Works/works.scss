@@ -53,6 +53,7 @@
 
                     &.#{$theme-dark} {
                         @include get-theme-variables($theme-dark, $theme-color-varient-lighter, 'background');
+                        color: rgb(136, 146, 176);
                     }
                 }
 

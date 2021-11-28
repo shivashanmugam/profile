@@ -21,7 +21,7 @@ const Header = function () {
             <Row justify="center" >
                 <Col md={24} sm={24} >
                     <Space direction="horizontal" size="small">
-                        <Logo />
+                        <MenuLink text="PROFILE" Component={routerLinks.home} />
                         <MenuLink text="WORKS" Component={routerLinks.works} />
                         <MenuLink text="BLOG" Component={routerLinks.blog} />
                         <Button onClick={() => { dispatch(setTheme(themeToSwitch)) }} style={{ 'margin-top': '-7px', 'margin-left': '300px' }} size="medium" shape="round">{themeTextconst[themeToSwitch]}</Button>
@@ -34,13 +34,6 @@ const Header = function () {
 
 export default Header;
 
-function Logo() {
-    return (
-        <div className="header-wrapper">
-            <Title level={3} ><routerLinks.home><Text>Siva Kannan</Text></routerLinks.home></Title>{/* style={{ "color": "rgb(204, 214, 246)" }} */}
-        </div>
-    )
-}
 
 function MenuLink({ text, Component, type }) {
 
