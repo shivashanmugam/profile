@@ -11,7 +11,7 @@
     "gatsby-theme-blog-darkmode": "^3.0.0"
   },
   "engines": {
-    "node": "14.x.x"
+    "node": "12.x.x"
   },
   "devDependencies": {},
   "scripts": {
