@@ -1,0 +1,1 @@
+{"version":3,"sources":["LightApp.js"],"names":["LightApp","props","children"],"mappings":"oGAAA,yBAQeA,UANE,SAACC,GACd,OACI,mCAAGA,EAAMC","file":"static/js/6.c973c66f.chunk.js","sourcesContent":["import 'antd/dist/antd.css';\r\n\r\nconst LightApp = (props) => {\r\n    return (\r\n        <>{props.children}</>\r\n    )\r\n}\r\n\r\nexport default LightApp"],"sourceRoot":""}
