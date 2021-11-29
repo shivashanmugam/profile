@@ -2,7 +2,7 @@ const express = require('express')
 const path = require('path');
 const bodyParser = require('body-parser');
 const app = express()
-const port = 3005
+const port = process.env.SERVER_PORT || 3005;
 
 
 var filePath = {

@@ -56,6 +56,9 @@
     "typography": "^0.16.19",
     "yup": "^0.27.0"
   },
+  "engines": {
+    "node": "14.x.x"
+  },
   "devDependencies": {
     "babel-preset-gatsby": "^0.2.20",
     "prettier": "1.18.2"

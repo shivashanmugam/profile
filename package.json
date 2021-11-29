@@ -5,9 +5,13 @@
   "main": "server.js",
   "dependencies": {
     "body-parser": "^1.19.0",
+    "dotenv": "^10.0.0",
     "ejs": "^2.6.1",
     "express": "^4.17.0",
     "gatsby-theme-blog-darkmode": "^3.0.0"
+  },
+  "engines": {
+    "node": "14.x.x"
   },
   "devDependencies": {},
   "scripts": {
