@@ -1,1 +1,0 @@
-{"version":3,"sources":["DarkApp.js"],"names":["DarkApp","props","children"],"mappings":"oGAAA,yBAQeA,UANC,SAACC,GACb,OACI,mCAAGA,EAAMC","file":"static/js/5.06821678.chunk.js","sourcesContent":["import 'antd/dist/antd.dark.css';\r\n\r\nconst DarkApp = (props) => {\r\n    return (\r\n        <>{props.children}</>\r\n    )\r\n}\r\n\r\nexport default DarkApp"],"sourceRoot":""}

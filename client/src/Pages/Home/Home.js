@@ -1,6 +1,6 @@
 import { useEffect, useState, useRef } from 'react';
 import { Typography, Space, Tag, Avatar, Col, Row, Divider, List, Tabs, Button, Carousel } from 'antd';
-import Icon, { GithubFilled, TwitterOutlined, LinkedinOutlined, CaretRightOutlined, PushpinOutlined, TrophyOutlined, DatabaseOutlined } from '@ant-design/icons';
+import Icon, { GithubFilled, TwitterOutlined, LinkedinOutlined, CaretRightOutlined, PushpinOutlined, TrophyOutlined, DatabaseOutlined, MailOutlined, PhoneOutlined } from '@ant-design/icons';
 import './Home.scss';
 import myself from './myself.jpg';
 import stackoverflow from './stack.svg';
@@ -41,6 +41,8 @@ export default function Home() {
                                 {/* <Text type="secondary"><a class="link"><TwitterOutlined style={{ 'color': '#5da9dd' }} /> twitter</a></Text> */}
                                 <Text type="secondary"><a target="_blank" href="https://stackoverflow.com/users/2264606/siva-kannan" class="link"><StackOverflowIcon /> stackoverflow</a></Text>
                                 <Text type="secondary" ><a target="_blank" href="https://www.linkedin.com/in/siva-kannan-28329848/" class="link"><LinkedinOutlined style={{ 'color': '#0073b1' }} /> Linkedin</a></Text>
+                                <Text type="secondary"><MailOutlined /> sivashanmugam4444@gmail.com</Text>
+                                <Text type="secondary" ><span ><PhoneOutlined className={'rotated-phone'}></PhoneOutlined></span>+91-8508874861</Text>
                             </Space>
                         </Space>
                     </Col>
@@ -54,9 +56,9 @@ export default function Home() {
                 <Divider orientation={'left'}><span class="icon-title">🛠️ <Title level={4}>&nbsp;&nbsp;Skills</Title></span></Divider>
                 <Row className={"skill-content"}>
                     <Col md={6}><Space direction="vertical"><SkillVertical title={'Languages'} list={['Javascript', 'Nodejs', 'HTML & CSS', 'Typescript', 'C']} /></Space></Col>
-                    <Col md={6}><Space><SkillVertical title={'Libraries'} list={['ReactJS', 'Express', 'AngularJS', 'Gatsby', 'Antd']} /></Space></Col>
-                    <Col md={6}><Space><SkillVertical title={'Tools'} list={['Storybook', 'Webpack', 'git', 'Puppeteer', 'Grunt & gulp']} /></Space></Col>
-                    <Col md={6}><Space><SkillVertical title={'Concepts'} list={['MERN stack', 'JAM stack', 'Test driven development', 'SCRUM', 'Dev Ops']} /></Space></Col>
+                    <Col md={6}><Space><SkillVertical title={'Libraries'} list={['ReactJS', 'Express', 'AngularJS', 'Antd', 'Gatsby']} /></Space></Col>
+                    <Col md={6}><Space><SkillVertical title={'Tools'} list={['git', 'Storybook', 'Webpack', 'Puppeteer', 'Grunt & gulp']} /></Space></Col>
+                    <Col md={6}><Space><SkillVertical title={'Concepts'} list={['MERN stack', 'JAM stack', 'Test driven development', 'SCRUM', 'CI/CD']} /></Space></Col>
                 </Row>
             </div>
             <div className={"work-experience"}>
@@ -94,7 +96,7 @@ export default function Home() {
                     <Col md={10} className={"project-description-container"}>
                         <Space direction="vertical">
                             <Title level={2} class="project-title">Embibe educational platform</Title>
-                            <Text className={'golden-text'} type="secondary">Nominated for Google play 2021 User choice awards</Text>
+                            <Text className={'golden-text'} type="secondary">Awarded as #1 App for Personal Growth in Google play 2021 User choice awards</Text>
                             <div className={`image-slider-text-overlay ${curTheme}`}>
                                 At embibe we worked to create world class personlized learning platform for students. Was responsible building test module. Created multiple complex question types during my tenure.
                             </div>

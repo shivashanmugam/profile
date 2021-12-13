@@ -42,12 +42,27 @@ export const Works = function () {
         return index % 2 == 0
     }
 
+
+    const ImageSliderOrBanner = function ({ work }) {
+        return (
+            <>
+                {
+                    work[WORK_PROP_CONST.BANNER] && <Image src={require(`${dataBasePath}${work[WORK_PROP_CONST.FOLDER_NAME]}/${work[WORK_PROP_CONST.BANNER]}`).default} />
+                }
+                {!work[WORK_PROP_CONST.BANNER] && work[WORK_PROP_CONST.SCREEN_SHOTS].length > 0 && <ImageSlider theme={curTheme} work={work} images={work[WORK_PROP_CONST.SCREEN_SHOTS]} />}
+            </>
+        )
+    }
+
     return (
         <div className={`works-page ${curTheme}`}>
             {works.map((work, index) => {
                 return (<><Divider orientation={isWorkCardOddIndex(index) ? "left" : "right"}>{index + 1} . {work[WORK_PROP_CONST.TITLE]}</Divider><div class="works-page__work-card">
                     <Row className={"top-portion"}>
-                        {isWorkCardOddIndex(index) && <Col span={8} className={"banner"}><ImageSlider theme={curTheme} work={work} images={work[WORK_PROP_CONST.SCREEN_SHOTS]} /></Col>}
+                        {isWorkCardOddIndex(index) && <Col span={8} className={"banner"}>
+                            <ImageSliderOrBanner work={work} />
+                        </Col>
+                        }
                         <Col span={16} className={`details`}>
                             <Space direction="vertical" >
                                 {/* <Title className={WORK_PROP_CONST.TITLE} level={4}>{work[WORK_PROP_CONST.TITLE]}</Title> */}
@@ -66,7 +81,9 @@ export const Works = function () {
                                 </div>
                             </Space>
                         </Col>
-                        {!isWorkCardOddIndex(index) && <Col span={8} className={"banner"}><img src={require(`${dataBasePath}${work[WORK_PROP_CONST.FOLDER_NAME]}/${work[WORK_PROP_CONST.BANNER]}`).default} /></Col>}
+                        {!isWorkCardOddIndex(index) && <Col span={8} className={"banner"}>
+                            <ImageSliderOrBanner work={work} />
+                        </Col>}
                     </Row>
                     {/* {work[WORK_PROP_CONST.SCREEN_SHOTS].length > 0 && <ImageSlider work={work} images={work[WORK_PROP_CONST.SCREEN_SHOTS]} />} */}
                 </div></>)
