@@ -10,9 +10,6 @@
     "express": "^4.17.0",
     "gatsby-theme-blog-darkmode": "^3.0.0"
   },
-  "engines": {
-    "node": "12.x.x"
-  },
   "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
