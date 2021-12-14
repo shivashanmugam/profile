@@ -29,4 +29,3 @@ node_modules
 .sass-cache/
 .cache/
 .DS_Store
-public
