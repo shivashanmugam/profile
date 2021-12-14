@@ -56,6 +56,9 @@
     "typography": "^0.16.19",
     "yup": "^0.27.0"
   },
+  "engines": {
+    "node": "14.x.x"
+  },
   "devDependencies": {
     "babel-preset-gatsby": "^0.2.20",
     "prettier": "1.18.2"
@@ -66,8 +69,8 @@
   "license": "MIT",
   "main": "n/a",
   "scripts": {
-    "build": "gatsby build",
-    "build-with-prefix": "gatsby build --prefix-paths",
+    "build-without-prefix": "gatsby build",
+    "build": "gatsby build --prefix-paths",
     "develop": "gatsby develop",
     "start": "serve public/",
     "now-build": "npm run build"
