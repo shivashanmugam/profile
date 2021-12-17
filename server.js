@@ -5,20 +5,23 @@ const app = express()
 const port = process.env.SERVER_PORT || 3005;
 
 
-var filePath = {
-    public: {
-        'js': './public/js',
-        'css': './public/css',
-        'images': './public/image'
-    }
-}
+// var filePath = {
+//     public: {
+//         'js': './public/js',
+//         'css': './public/css',
+//         'images': './public/image',
+//         'docs': './public/docs'
+//     }
+// }
 
 app.use(bodyParser.json());
 app.set('views', path.join(__dirname, '/pages'));
 
 // app.use(express.static('public'))
 app.set('view engine', 'ejs');
+app.use('/docs', express.static(path.join(__dirname, '/public/docs')))
 app.use('/blog', express.static(path.join(__dirname, '/client/blog/public')))
+app.use('/resume', express.static(path.join(__dirname, '/client/resume-template')))
 app.use('/static', express.static(path.join(__dirname, '/client/build/static')))
 // app.use(express.static(path.join(__dirname, '/client/build')));
 // app.use(express.static('client/blog/public'))
@@ -29,6 +32,11 @@ app.use('/static', express.static(path.join(__dirname, '/client/build/static')))
 
 app.get('/blog', (req, res) => {
     res.sendFile(path.join(__dirname + '/client/blog/public/index.html'));
+});
+
+
+app.get('/resume', (req, res) => {
+    res.sendFile(path.join(__dirname + '/client/resume-template/index.html'));
 });
 
 app.get('/*', (req, res) => {

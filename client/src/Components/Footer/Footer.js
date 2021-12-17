@@ -20,7 +20,7 @@ function Footer() {
                     <Text className={'footer-icons'} type="secondary"><a target="_blank" href="http://github.com/shivashanmugam/" class="link"><GithubFilled style={{ 'color': curTheme == themeConst.DARK ? 'white' : 'black' }} /></a></Text>
                     {/* <Text type="secondary"><a class="link"><TwitterOutlined style={{ 'color': '#5da9dd' }} /> twitter</a></Text> */}
                     <Text className={'footer-icons'} type="secondary"><a target="_blank" href="https://stackoverflow.com/users/2264606/siva-kannan" class="link"><StackOverflowIcon /></a></Text>
-                    <Button size="small" className={'resume'}>Resume</Button>
+                    <Button size="small" className={'resume'}><a target="_blank" href="/docs/resume-sivashanmugam.pdf">Resume</a></Button>
                     <Text className={'footer-icons'} type="secondary" ><a target="_blank" href="https://www.linkedin.com/in/siva-kannan-28329848/" class="link"><LinkedinOutlined style={{ 'color': '#0073b1' }} /></a></Text>
                     <Text className={'footer-icons'} type="secondary" ><a target="_blank" href="https://twitter.com/_siva_kannan"><TwitterOutlined style={{ 'color': '#5da9dd' }} /></a></Text>
 

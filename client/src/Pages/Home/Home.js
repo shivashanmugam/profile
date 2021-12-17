@@ -32,8 +32,8 @@ export default function Home() {
                     <Col md={18}>
                         <Space direction="vertical">
                             <Text>
-                                <div className={`small-intro ${curTheme}`}>I'm a software engineer emphasis on writing maintanable semantic code, designing beautiful interfaces and engineering amazing user experiences. <br></br><br></br>
-                                    Through out my 6 year professional career lead many design discussions, engineered complex front end modules, built libraries, created REST API Server, wrote build configurations, deployment configuration. Had hands on experience in the full software development cycle.
+                                <div className={`small-intro ${curTheme}`}>I'm a software engineer emphasis on writing maintainable semantic code, designing beautiful interfaces, and engineering amazing user experiences.<br></br><br></br>
+                                    Throughout my 6 years, professional career lead many design discussions, engineered complex front-end modules, built libraries, created REST API Server, wrote build configurations, deployment configuration. Had hands-on experience in the full software development cycle.
                                 </div>
                             </Text>
                             <Space size="large" direction="horizontal" className={'other-site-links'}>

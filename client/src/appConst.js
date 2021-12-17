@@ -18,6 +18,9 @@ export const routerLinks = {
     blog: (prop) => {
         return (<>{generateLink(ROUTE_CONST.BLOG, prop.text, prop, LINK_TYPE.ANCHOR)}</>)
     },
+    resume: (prop) => {
+        return (<>{generateLink(ROUTE_CONST.RESUME, prop.text, prop, LINK_TYPE.ANCHOR)}</>)
+    },
 
 }
 
@@ -33,5 +36,6 @@ function generateLink(url, text, prop, linkType) {
 export const ROUTE_CONST = {
     HOME: `/`,
     WORKS: `/works`,
-    BLOG: `/blog`
+    BLOG: `/blog`,
+    RESUME: '/resume'
 }
