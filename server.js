@@ -23,6 +23,7 @@ app.use('/docs', express.static(path.join(__dirname, '/public/docs')))
 app.use('/blog', express.static(path.join(__dirname, '/client/blog/public')))
 app.use('/resume', express.static(path.join(__dirname, '/client/resume-template')))
 app.use('/static', express.static(path.join(__dirname, '/client/build/static')))
+app.use('/publicissapient', express.static(path.join(__dirname, '/client/coding-challanges/publicis-sapien/static')))
 // app.use(express.static(path.join(__dirname, '/client/build')));
 // app.use(express.static('client/blog/public'))
 
@@ -32,6 +33,10 @@ app.use('/static', express.static(path.join(__dirname, '/client/build/static')))
 
 app.get('/blog', (req, res) => {
     res.sendFile(path.join(__dirname + '/client/blog/public/index.html'));
+});
+
+app.get('/publicissapient', (req, res) => {
+    res.sendFile(path.join(__dirname + '/client/coding-challanges/publicis-sapien/index.html'));
 });
 
 
