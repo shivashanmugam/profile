@@ -3,8 +3,8 @@ import { lighten } from 'polished'
 import colors from '../lib/colors'
 
 const themes = {
-  default: {
-    themeName: 'default',
+  light: {
+    themeName: 'light',
     colors: {
       primary: colors.blue,
       text: colors.black,
@@ -14,8 +14,8 @@ const themes = {
       ...colors,
     },
   },
-  dark: {
-    themeName: 'dark',
+  default: {
+    themeName: 'default',
     colors: {
       primary: lighten(0.05, colors.blue),
       text: colors.white,

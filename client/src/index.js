@@ -10,7 +10,7 @@ import { themeConst } from './Const/themeConst';
 const LightThemeComponent = React.lazy(() => import('./LightApp'));
 const DarkThemeComponent = React.lazy(() => import('./DarkApp'));
 
-const curTheme = localStorage.theme == themeConst.DARK ? themeConst.DARK : themeConst.LIGHT;
+const curTheme = localStorage.theme == themeConst.LIGHT ? themeConst.LIGHT : themeConst.DARK;
 
 ReactDOM.render(
   <React.StrictMode>

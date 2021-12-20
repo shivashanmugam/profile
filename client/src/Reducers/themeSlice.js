@@ -4,7 +4,7 @@ import { themeConst, themePropConst } from '../Const/themeConst';
 export const themeSlice = createSlice({
     name: 'theme',
     initialState: {
-        [themePropConst.MODE]: localStorage.theme ? localStorage.theme : themeConst.LIGHT,
+        [themePropConst.MODE]: localStorage.theme ? localStorage.theme : themeConst.DARK,
     },
     reducers: {
         setTheme: (state, action) => {

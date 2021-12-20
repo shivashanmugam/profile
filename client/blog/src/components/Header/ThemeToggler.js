@@ -4,14 +4,14 @@ import styled from '@emotion/styled'
 import { FiMoon, FiSun } from 'react-icons/fi'
 import { useTheme } from '../Theming'
 
-const DarkMode = styled(FiMoon)({
+const LightMode = styled(FiSun)({
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
   margin: '0',
 })
 
-const DefaultMode = styled(FiSun)({
+const DefaultMode = styled(FiMoon)({
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
@@ -45,14 +45,14 @@ const ThemeToggler = ({ toggleTheme, themeName }) => {
         },
       }}
       aria-label={
-        themeName === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'
+        themeName === 'light' ? 'Switch to dark mode' : 'Switch to light mode'
       }
-      onClick={() => toggleTheme(themeName === 'dark' ? 'default' : 'dark')}
+      onClick={() => toggleTheme(themeName === 'light' ? 'default' : 'light')}
     >
-      {themeName === 'dark' ? (
-        <DefaultMode title="Switch to light mode" />
+      {themeName === 'light' ? (
+        <DefaultMode title="Switch to dark mode" />
       ) : (
-        <DarkMode title="Switch to dark mode" />
+        <LightMode title="Switch to light mode" />
       )}
     </Button>
   )
