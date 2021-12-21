@@ -2,7 +2,7 @@ import { useEffect, useState, useRef } from 'react';
 import { Typography, Space, Tag, Avatar, Col, Row, Divider, List, Tabs, Button, Carousel } from 'antd';
 import Icon, { GithubFilled, TwitterOutlined, LinkedinOutlined, CaretRightOutlined, PushpinOutlined, TrophyOutlined, DatabaseOutlined, MailOutlined, PhoneOutlined } from '@ant-design/icons';
 import './Home.scss';
-import myself from './myself.jpg';
+import myself from './myself-2.jpeg';
 import stackoverflow from './stack.svg';
 import { themeConst, themePropConst } from 'Const/themeConst';
 import { useSelector } from 'react-redux';
