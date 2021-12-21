@@ -1,9 +1,9 @@
 import { WORK_PROP_CONST } from '../Works';
 
 export const works = [
-    'bugs_vs_developer',
+    'table_almighty',
     'web_audio_visualizer',
-    'table_almighty'
+    'bugs_vs_developer',
 ]
 
 
