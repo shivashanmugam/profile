@@ -27,7 +27,8 @@ export const data = [{
     [JOB_PROPS.DESCRIPTIVE_LIST]: [
         'Worked in creating <a href="https://diksha.gov.in/" target="_blank">Diksha app</a> ( official Indian gov platform for teachers and students ) Content creation portal in the early stages which is eventually turned out as a go-to app for CBSE students across India',
         'Created a unique Test creation platform for teachers for the Product Funtoot',
-        'Responsible for the complete maintenance including dev-ops for a content creation portal'
+        'Responsible for the complete maintenance including dev-ops for a content creation portal',
+        'Won Outstanding Developer Award - 2019 🏆'
     ]
 }, {
     [JOB_PROPS.COMPANY]: 'Indo Sakura',
