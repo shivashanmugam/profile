@@ -43,7 +43,7 @@ const themes = {
 }
 
 const returnRespectiveTheme = function(){
-  if(typeof window !== 'undefined'){
+  if(typeof window !== 'undefined' && window.localStorage.getItem('theme') != null && window.localStorage.getItem('theme') != ''){
     return themes[window.localStorage.getItem('theme')]
   } else {
     return themes['default']
