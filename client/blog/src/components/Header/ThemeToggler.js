@@ -20,6 +20,16 @@ const DefaultMode = styled(FiMoon)({
 
 const ThemeToggler = ({ toggleTheme, themeName }) => {
   const theme = useTheme()
+  const switchTheme = function(){
+    if(themeName == 'light'){
+      localStorage.setItem('theme','dark')
+    } else {
+      localStorage.setItem('theme','light')
+    }
+    
+    window.location.reload();
+  }
+
   return (
     <Button
       css={{
@@ -47,7 +57,7 @@ const ThemeToggler = ({ toggleTheme, themeName }) => {
       aria-label={
         themeName === 'light' ? 'Switch to dark mode' : 'Switch to light mode'
       }
-      onClick={() => toggleTheme(themeName === 'light' ? 'default' : 'light')}
+      onClick={switchTheme}
     >
       {themeName === 'light' ? (
         <DefaultMode title="Switch to dark mode" />

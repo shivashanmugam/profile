@@ -9,13 +9,19 @@ import Container from 'components/Container'
 import { rhythm } from '../lib/typography'
 
 
-const Description = styled.p`
-  margin-bottom: 10px;
-  display: inline-block;
-`
+
 
 export default function Index({ data: { site, allMdx } }) {
+
+  
   const theme = useTheme()
+
+  const Description = styled.p`
+  margin-bottom: 10px;
+  display: inline-block;
+  color:${theme.colors.secondary};
+`
+
   return (
     <Layout site={site} noSubscribeForm={true}>
       <Container

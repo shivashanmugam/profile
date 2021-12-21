@@ -18,6 +18,7 @@ const getGlobalStyles = theme => {
     body {
       background: ${theme.colors.bodyBg};
       color: ${theme.colors.text};
+      font-size:14px;
     }
     &::selection {
       color: ${theme.colors.white};
@@ -148,9 +149,9 @@ export default ({
 
   const [themeName, setTheme] = useState(initializeTheme)
 
-  useEffect(() => {
-    localStorage.setItem('theme', themeName)
-  }, [themeName])
+  // useEffect(() => {
+  //   localStorage.setItem('theme', themeName)
+  // }, [themeName])
 
   const toggleTheme = name => setTheme(name)
   const theme = {
