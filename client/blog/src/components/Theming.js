@@ -42,6 +42,15 @@ const themes = {
 
 }
 
-const { ThemeProvider, withTheme, useTheme } = createTheming(themes[localStorage.getItem('theme')]);
+const returnRespectiveTheme = function(){
+  if(typeof window !== 'undefined'){
+    return themes[window.localStorage.getItem('theme')]
+  } else {
+    return themes['default']
+  }
+
+}
+
+const { ThemeProvider, withTheme, useTheme } = createTheming(returnRespectiveTheme());
 
 export { ThemeProvider, withTheme, useTheme, themes, colors }

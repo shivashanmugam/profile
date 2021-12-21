@@ -21,12 +21,13 @@ const DefaultMode = styled(FiMoon)({
 const ThemeToggler = ({ toggleTheme, themeName }) => {
   const theme = useTheme()
   const switchTheme = function(){
-    if(themeName == 'light'){
-      localStorage.setItem('theme','dark')
-    } else {
-      localStorage.setItem('theme','light')
+    if (typeof window !== 'undefined') {
+      if(themeName == 'light'){
+        window.localStorage.setItem('theme','dark')
+      } else {
+        window.localStorage.setItem('theme','light')
+      }
     }
-    
     window.location.reload();
   }
 
