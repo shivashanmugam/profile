@@ -49,7 +49,7 @@ body {
 .name-description-contact {
   width: var(--page-width);
   background: #edf2f8;
-  height: 2.4in;
+  height: 2in;
   float: left;
   padding: 0.15in 0.25in 0 0.25in;
 }
@@ -108,7 +108,7 @@ h1, h2, h3, h4, h5 {
 }
 
 .contact-details.first {
-  margin-top: 0.5in;
+  margin-top: 0.25in;
 }
 
 
