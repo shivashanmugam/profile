@@ -56,7 +56,7 @@ body {
 
 .name-description-contact.as-page-header {
   height: 1in;
-  margin-top: 0.37in;
+  /* margin-top: 0.37in; */
 }
 
 h1, h2, h3, h4, h5 {
@@ -124,6 +124,17 @@ h1, h2, h3, h4, h5 {
   font-size: var(--normal-font-size);
 }
 
+.container.skills {}
+
+.container.tools button {
+  border: 1px dashed black;
+  background: none !important;
+  color: black;
+  font-size: 10px;
+  margin-bottom: 4px;
+  padding: 3px 3px;
+}
+
 .tech-skill ul {
   font-size: 11pt;
   padding-left: 0;
@@ -183,7 +194,8 @@ h1, h2, h3, h4, h5 {
   background: #538cc6;
   border: 0px;
   padding: 4pt 6pt;
-  margin: 0pt 2pt;
+  margin: 1pt 2pt;
+  margin-bottom: 4px;
   border-radius: 3pt;
   color: white;
 }
@@ -230,6 +242,11 @@ ul.no-margin {
   font-size: 7pt;
   text-align: right;
   line-height: 1;
+}
+
+
+.date.year-only {
+  line-height: 3.5;
 }
 
 .date span {
@@ -350,7 +367,7 @@ ul.no-margin {
 }
 
 footer {
-  bottom: -280pt;
+  bottom: -150px;
   text-align: right;
   position: absolute;
   right: 25pt;
