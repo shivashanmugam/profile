@@ -1,7 +1,7 @@
 # Features 
 
-[Profile](https://sivakannan.in/profile/)
-[Blog](https://sivakannan.in/blog/)
+[Profile](https://sivakannan.in/profile/)  
+[Blog](https://sivakannan.in/blog/)  
 [Work showcase](https://sivakannan.in/works/)
 
 ## To add blogs 
