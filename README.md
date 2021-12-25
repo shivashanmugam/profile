@@ -6,4 +6,5 @@
 
 ## To add blogs 
 Go to path : `/profile/tree/main/client/blog/content/blog`
-Create a folder : 
+view existing folders for reference
+Execute yarn build from `blog` path
