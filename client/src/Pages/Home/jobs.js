@@ -9,22 +9,14 @@ export const JOB_PROPS = {
 export const data = [{
     [JOB_PROPS.COMPANY]: 'Embibe',
     [JOB_PROPS.POSITION]: 'SDE-2',
-    [JOB_PROPS.SPAN]: 'October 2019 - Present',
-    [JOB_PROPS.EXTRA_TITLE]: '( Joined as part of merger from   Funtoot )',
+    [JOB_PROPS.SPAN]: 'Aug 2017 - Present',
+    [JOB_PROPS.EXTRA_TITLE]: '( Previously Funtoot  )',
     [JOB_PROPS.LOCATION]: 'Bangalore',
     [JOB_PROPS.DESCRIPTIVE_LIST]: [
         'Created a world-class educational platform <a href="embibe.com" target="_blank">embibe.com</a> which is helping the students to have amazing learning experiences',
         'Helped the team in early front-end microservice development configurations, CI/CD',
         'Created a world-class educational platform that will help the students to have amazing learning experiences',
-        'Ensured the modules are compatible with smart TVs, mobile, tablet, web.'
-    ]
-}, {
-    [JOB_PROPS.COMPANY]: 'Funtoot',
-    [JOB_PROPS.POSITION]: 'Software Developer',
-    [JOB_PROPS.SPAN]: 'Aug 2017 - September 2019',
-    [JOB_PROPS.EXTRA_TITLE]: '',
-    [JOB_PROPS.LOCATION]: 'Bangalore',
-    [JOB_PROPS.DESCRIPTIVE_LIST]: [
+        'Ensured the modules are compatible with smart TVs, mobile, tablet, web.',
         'Worked in creating <a href="https://diksha.gov.in/" target="_blank">Diksha app</a> ( official Indian gov platform for teachers and students ) Content creation portal in the early stages which is eventually turned out as a go-to app for CBSE students across India',
         'Created a unique Test creation platform for teachers for the Product Funtoot',
         'Responsible for the complete maintenance including dev-ops for a content creation portal',
