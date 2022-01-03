@@ -29,7 +29,7 @@ export const data = [{
     [JOB_PROPS.EXTRA_TITLE]: '',
     [JOB_PROPS.LOCATION]: 'Bangalore',
     [JOB_PROPS.DESCRIPTIVE_LIST]: [
-        'Created ERP portal for Japanese clients with specific needs which included internationalization',
+        'Created Lead Management Software portal for Japanese clients with specific needs which included internationalization',
         'Worked on multiple projects with rigid timelines to finish',
     ]
 }, {
