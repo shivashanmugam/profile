@@ -33,7 +33,7 @@ export default function Home() {
                         <Space direction="vertical">
                             <Text>
                                 <div className={`small-intro ${curTheme}`}>I'm a software engineer emphasis on writing maintainable semantic code, designing beautiful interfaces, and engineering amazing user experiences.<br></br><br></br>
-                                I'm a software engineer emphasis on writing maintainable semantic code, designing beautiful interfaces, and engineering amazing user experiences. Throughout 6 years of my professional career have led many design discussions, engineered complex front-end modules, built libraries, created REST API Server, wrote build configurations and deployment configurations. Had hands-on experience in the full software development cycle.
+                                Throughout 6 years of my professional career have led many design discussions, engineered complex front-end modules, built libraries, created REST API Server, wrote build configurations and deployment configurations. Had hands-on experience in the full software development cycle.
                                 </div>
                             </Text>
                             <Space size="large" direction="horizontal" className={'other-site-links'}>
