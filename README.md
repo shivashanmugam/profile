@@ -1,6 +1,6 @@
-# Features 
+# Features demo
 
-[Profile](https://sivakannan.in/profile/)  
+[Profile](https://sivakannan.in/)  
 [Blog](https://sivakannan.in/blog/)  
 [Work showcase](https://sivakannan.in/works/)
 
