@@ -10,7 +10,7 @@ export const data = [{
     [JOB_PROPS.COMPANY]: 'Embibe',
     [JOB_PROPS.POSITION]: 'SDE-2',
     [JOB_PROPS.SPAN]: 'Aug 2017 - Present',
-    [JOB_PROPS.EXTRA_TITLE]: '( Previously Funtoot  )',
+    [JOB_PROPS.EXTRA_TITLE]: '( Reliance Industries )',
     [JOB_PROPS.LOCATION]: 'Bangalore',
     [JOB_PROPS.DESCRIPTIVE_LIST]: [
         'Created a world-class educational platform <a href="embibe.com" target="_blank">embibe.com</a> which is helping the students to have amazing learning experiences',
@@ -33,10 +33,10 @@ export const data = [{
         'Worked on multiple projects with rigid timelines to finish',
     ]
 }, {
-    [JOB_PROPS.COMPANY]: 'Higher One',
+    [JOB_PROPS.COMPANY]: 'Blackboard.Inc',
     [JOB_PROPS.POSITION]: 'Technology Trainee',
     [JOB_PROPS.SPAN]: 'Aug 2015 - May 2016',
-    [JOB_PROPS.EXTRA_TITLE]: '',
+    [JOB_PROPS.EXTRA_TITLE]: '( Previously Higher One )',
     [JOB_PROPS.LOCATION]: 'Chennai',
     [JOB_PROPS.DESCRIPTIVE_LIST]: [
         'Created a internal communication tools for employees as a started project and it was adopted inside the company successfully',

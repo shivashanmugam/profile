@@ -15,8 +15,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js",
     "client-build":"cd client && yarn build",
-    "blog-build":"cd client && cd blog && yarn build"
-    
+    "blog-build":"cd client && cd blog && yarn build",
+    "build-both":"yarn blog-build && yarn client-build"
   },
   "author": "",
   "license": "ISC"
