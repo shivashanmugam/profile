@@ -6,7 +6,7 @@ module.exports = {
   siteUrl: 'https://sivakannan.in/blog', // Domain of your site. No trailing slash!
   siteLanguage: 'en', // Language Tag on <html> element
   siteLogo: 'images/logo.png', // Used for SEO and manifest, path to your image you placed in the 'static' folder
-  siteDescription: 'This is where they post things!',
+  siteDescription: 'Details into the expereiences in web development',
   author: 'Siva Kannan', // Author for schemaORGJSONLD
   organization: 'Siva Kannan',
 
