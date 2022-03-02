@@ -13,7 +13,10 @@
   "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "start": "node server.js",
+    "client-build":"cd client && yarn build",
+    "blog-build":"cd client && cd blog && yarn build"
+    
   },
   "author": "",
   "license": "ISC"
