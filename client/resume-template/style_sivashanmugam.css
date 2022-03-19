@@ -56,7 +56,11 @@ body {
 
 .name-description-contact.as-page-header {
   height: 1in;
-  /* margin-top: 0.37in; */
+  margin-top: -0.67in;
+}
+
+.name-description-contact.as-page-header.third{
+  margin-top: -0.37in;
 }
 
 h1, h2, h3, h4, h5 {
@@ -367,7 +371,7 @@ ul.no-margin {
 }
 
 footer {
-  bottom: -80px;
+  bottom: -30px;
   text-align: right;
   position: absolute;
   right: 25pt;
